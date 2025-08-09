@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular Interactiva - Ingeniería Civil Industrial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
 
+    <header>
+        <h1>Malla Curricular Interactiva</h1>
+        <h2>Ingeniería Civil Industrial - Universidad Católica del Maule</h2>
+    </header>
+
+    <div id="malla-curricular" class="malla-container">
+        </div>
+
+    <footer>
+        <p>Haz clic en una asignatura para marcarla como aprobada. Tu progreso se guardará automáticamente.</p>
+    </footer>
+
+    <div id="modal-bloqueo" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2>Asignatura Bloqueada</h2>
+            <p>Para cursar esta asignatura, primero debes aprobar:</p>
+            <ul id="lista-prerrequisitos"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
