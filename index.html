@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular Interactiva - Ingeniería Civil Industrial</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <header>
+        <h1>Malla Curricular Interactiva</h1>
+        <h2>Ingeniería Civil Industrial - UCM</h2>
+    </header>
+
+    <div class="malla-container">
+        <div class="semestre" id="semestre-1">
+            <h3>I</h3>
+            <div class="ramo" id="IND-111" data-reqs="">Álgebra</div>
+            <div class="ramo" id="IND-112" data-reqs="">Cálculo I</div>
+            <div class="ramo" id="IND-113" data-reqs="">Com. en Ingeniería</div>
+            <div class="ramo" id="IND-114" data-reqs="">Introducción a la Ingeniería</div>
+            <div class="ramo" id="IFG-100" data-reqs="">Inglés I</div>
+        </div>
+
+        <div class="semestre" id="semestre-2">
+            <h3>II</h3>
+            <div class="ramo" id="IND-121" data-reqs="IND-111">Álgebra Lineal</div>
+            <div class="ramo" id="IND-122" data-reqs="IND-112">Cálculo II</div>
+            <div class="ramo" id="IND-123" data-reqs="">Química</div>
+            <div class="ramo" id="IND-124" data-reqs="IND-114">Computac. I</div>
+            <div class="ramo" id="IFG-200" data-reqs="IFG-100">Inglés II</div>
+        </div>
+
+        <div class="semestre" id="semestre-3">
+            <h3>III</h3>
+            <div class="ramo" id="IND-213" data-reqs="IND-122">Prob. y Estadística</div>
+            <div class="ramo" id="IND-211" data-reqs="IND-122">Cálculo III</div>
+            <div class="ramo" id="IND-212" data-reqs="IND-112">Física I</div>
+            <div class="ramo" id="IND-214" data-reqs="IND-124">Computac. II</div>
+            <div class="ramo" id="IFG-300" data-reqs="IFG-200">Inglés III</div>
+        </div>
+        
+        <div class="semestre" id="semestre-4">
+            <h3>IV</h3>
+            <div class="ramo" id="IND-223" data-reqs="IND-213">Análisis Multivariado</div>
+            <div class="ramo" id="IND-221" data-reqs="IND-121,IND-211">Ecuaciones Diferenciales</div>
+            <div class="ramo" id="IND-222" data-reqs="IND-122,IND-212">Física II</div>
+            <div class="ramo" id="IND-334" data-reqs="">Módulo Integ. CC.BB.</div>
+        </div>
+        
+        <div class="semestre" id="semestre-5">
+            <h3>V</h3>
+            <div class="ramo" id="IND-311" data-reqs="IND-223">M. M. y Estocástico</div>
+            <div class="ramo" id="IND-313" data-reqs="IND-221">Diseño Ind. y Dib. Tec.</div>
+            <div class="ramo" id="IND-312" data-reqs="IND-222">Termodinám.</div>
+            <div class="ramo" id="IND-314" data-reqs="IND-114">Adm. y RRHH</div>
+            <div class="ramo" id="MFG-114" data-reqs="">Introducción a la Fe</div>
+        </div>
+        
+        <div class="semestre" id="semestre-6">
+            <h3>VI</h3>
+            <div class="ramo" id="IND-322" data-reqs="IND-311">Logística</div>
+            <div class="ramo" id="IND-321" data-reqs="IND-221">Elect. Ind. y Automatiz.</div>
+            <div class="ramo" id="IND-324" data-reqs="IND-112">Contab. y Finanzas</div>
+            <div class="ramo" id="IND-323" data-reqs="IND-213">Economía</div>
+            <div class="ramo" id="IND-325" data-reqs="IND-214">Base de Datos</div>
+            <div class="ramo" id="MFG-214" data-reqs="MFG-114">Ética Cristiana</div>
+        </div>
+        
+        <div class="semestre" id="semestre-7">
+            <h3>VII</h3>
+            <div class="ramo" id="IND-411" data-reqs="IND-311">Investiga. Operaciones</div>
+            <div class="ramo" id="IND-412" data-reqs="IND-312">Procesos Industriales</div>
+            <div class="ramo" id="IND-414" data-reqs="IND-324">Emprend. y Creación Empresas</div>
+            <div class="ramo" id="IND-413" data-reqs="IND-323">Ingeniería Económica</div>
+            <div class="ramo" id="IND-415" data-reqs="">Metodología Investigac.</div>
+        </div>
+        
+        <div class="semestre" id="semestre-8">
+            <h3>VIII</h3>
+            <div class="ramo" id="IND-421" data-reqs="IND-411">Gestión de Operaciones</div>
+            <div class="ramo" id="IND-422" data-reqs="IND-412">Control de Gestión</div>
+            <div class="ramo" id="IND-423" data-reqs="IND-414">Des. Personal y Liderazgo</div>
+            <div class="ramo" id="IND-424" data-reqs="IND-413">Creatividad Prototipos Negocios</div>
+            <div class="ramo" id="IND-425" data-reqs="ALL-PREVIOUS">Módulo Integ. Lic. (Práctica 1)</div>
+            <div class="ramo cf" id="CFG-1" data-reqs="">Certificación CFG</div>
+        </div>
+
+        <div class="semestre" id="semestre-9">
+            <h3>IX</h3>
+            <div class="ramo" id="IND-511" data-reqs="IND-421">Optimiza.</div>
+            <div class="ramo" id="IND-512" data-reqs="IND-422,IND-325">Gestión y Análisis de Información</div>
+            <div class="ramo" id="IND-513" data-reqs="IND-413">Formal. y Ev. de Proyectos</div>
+            <div class="ramo" id="IND-514" data-reqs="IND-424">Propiedad Intelectual</div>
+            <div class="ramo" id="IND-515" data-reqs="IND-424">Marketing Estrat. Comer. Tec.</div>
+        </div>
+        
+        <div class="semestre" id="semestre-10">
+            <h3>X</h3>
+            <div class="ramo lic" id="IND-521" data-reqs="IND-422">Gestión Calidad Prod.</div>
+            <div class="ramo lic" id="IND-522" data-reqs="IND-513">Electivo Ev. Proyectos</div>
+            <div class="ramo" id="IND-523" data-reqs="IND-513">Plan. Estrat. y Gestión Negocios</div>
+            <div class="ramo" id="IND-524" data-reqs="IND-514">Gestión P+D+e</div>
+            <div class="ramo" id="IND-525" data-reqs="IND-512">Inteligencia Comp. y Vig. Tec.</div>
+            <div class="ramo cf" id="CFG-2" data-reqs="">Certificación II CFG</div>
+        </div>
+        
+        <div class="semestre" id="semestre-11">
+            <h3>XI</h3>
+            <div class="ramo lic" id="IND-611" data-reqs="IND-521">Electivo G. Oper. y Proc. Ind.</div>
+            <div class="ramo lic" id="IND-612" data-reqs="IND-523">Electivo Gestión Negocios</div>
+            <div class="ramo" id="IND-613" data-reqs="IND-425,IND-523">Módulo Integrador Formación Profesional (Práctica 2)</div>
+            <div class="ramo cf" id="CFG-3" data-reqs="">Certificación III CFG</div>
+        </div>
+    </div>
+    
+    <svg id="lines-container"></svg>
+
+    <script src="script.js"></script>
+</body>
+</html>
