@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'IND-212', nombre: 'Física I', semestre: 3, prerequisitos: ['IND-123'] },
         { id: 'IND-214', nombre: 'Computac. II', semestre: 3, prerequisitos: ['IND-124'] },
         { id: 'IFG-300', nombre: 'Inglés III', semestre: 3, prerequisitos: ['IFG-200'] },
-        { id: 'IND-334', nombre: 'Módulo Integ. CC.BB.', semestre: 3, prerequisitos: ['IND-214'] },
+        { id: 'IND-334', nombre: 'Módulo Integ. CC.BB.', semestre: 3, prerequisitos: [] },
         // Semestre IV
         { id: 'IND-223', nombre: 'Análisis Multivariado', semestre: 4, prerequisitos: ['IND-213'] },
         { id: 'IND-221', nombre: 'Ecuaciones Diferenciales', semestre: 4, prerequisitos: ['IND-211'] },
