@@ -38,8 +38,8 @@ h2 {
 #malla-container {
     display: flex;
     gap: 10px;
-    justify-content: center;
-    overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
+    justify-content: flex-start; /* <--- Esta es la corrección */
+    overflow-x: auto; 
     padding-bottom: 20px;
 }
 
