@@ -1,1 +1,151 @@
+:root {
+    --color-fondo: #f4f7f6;
+    --color-principal: #003366;
+    --color-secundario: #00aaff;
+    --color-texto: #333;
+    --color-borde: #d1d9e6;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    --color-resaltado-prereq: #ffdd57;
+    --color-resaltado-conseq: #48c774;
+    --radio-borde: 8px;
+}
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header, footer {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--color-principal);
+}
+
+h1 {
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+.malla-container {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr) 0.5fr; /* 11 semestres + columna de titulación */
+    gap: 10px;
+    width: 100%;
+    max-width: 1800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 4px 15px var(--color-sombra);
+}
+
+.semestre-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.semestre-titulo {
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-principal);
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: var(--radio-borde);
+    margin-bottom: 10px;
+}
+
+.asignatura {
+    border: 1px solid var(--color-borde);
+    border-left: 5px solid var(--color-secundario);
+    padding: 12px;
+    border-radius: var(--radio-borde);
+    background-color: #ffffff;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 2px 5px var(--color-sombra);
+    opacity: 0.9;
+}
+
+.asignatura:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px var(--color-sombra);
+    border-left-color: var(--color-principal);
+    opacity: 1;
+}
+
+.asignatura-nombre {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.asignatura-codigo {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* --- Estados de Resaltado --- */
+
+.asignatura.resaltado-base {
+    opacity: 1;
+    border-left-width: 5px;
+    transform: scale(1.05);
+}
+
+.asignatura.resaltado-prerequisito {
+    background-color: var(--color-resaltado-prereq);
+    border-left-color: #fca311;
+    opacity: 1;
+}
+
+.asignatura.resaltado-consecuencia {
+    background-color: var(--color-resaltado-conseq);
+    border-left-color: #2b9d5c;
+    opacity: 1;
+}
+
+.malla-container.filtrando .asignatura:not(.resaltado-base):not(.resaltado-prerequisito):not(.resaltado-consecuencia) {
+    opacity: 0.3;
+}
+
+/* Líneas de conexión (opcional, manejado por JS) */
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+path {
+    stroke-width: 2px;
+    fill: none;
+    transition: stroke 0.3s ease;
+}
+
+path.linea-prerequisito {
+    stroke: var(--color-resaltado-prereq);
+    stroke-dasharray: 5, 5;
+}
+
+path.linea-consecuencia {
+    stroke: var(--color-resaltado-conseq);
+}
