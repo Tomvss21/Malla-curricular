@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'IND-212', nombre: 'Física I', semestre: 3, prerequisitos: ['IND-123'] },
         { id: 'IND-214', nombre: 'Computac. II', semestre: 3, prerequisitos: ['IND-124'] },
         { id: 'IFG-300', nombre: 'Inglés III', semestre: 3, prerequisitos: ['IFG-200'] },
-        { id: 'IND-334', nombre: 'Módulo Integ. CC.BB.', semestre: 3, prerequisitos: [] },
+        { id: 'IND-334', nombre: 'Módulo Integ. CC.BB.', semestre: 3, prerequisitos: ['IND-214'] },
         // Semestre IV
         { id: 'IND-223', nombre: 'Análisis Multivariado', semestre: 4, prerequisitos: ['IND-213'] },
         { id: 'IND-221', nombre: 'Ecuaciones Diferenciales', semestre: 4, prerequisitos: ['IND-211'] },
@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', function () {
         { id: 'IND-412', nombre: 'Procesos Industriales', semestre: 7, prerequisitos: ['IND-321'] },
         { id: 'IND-413', nombre: 'Emprend. y Creación Empresas', semestre: 7, prerequisitos: ['IND-324'] },
         { id: 'IND-414', nombre: 'Ingeniería Económica', semestre: 7, prerequisitos: ['IND-323'] },
-        { id: 'IND-415', nombre: 'Metodología Investigac.', semestre: 7, prerequisitos: [] },
+        { id: 'IND-415', nombre: 'Metodología Investigac.', semestre: 7, prerequisitos: ['IND-325'] },
         // Semestre VIII
         { id: 'IND-421', nombre: 'Gestión de Operaciones', semestre: 8, prerequisitos: ['IND-411'] },
         { id: 'IND-422', nombre: 'Control de Gestión', semestre: 8, prerequisitos: ['IND-412'] },
         { id: 'IND-423', nombre: 'Des. Personal y Liderazgo', semestre: 8, prerequisitos: ['IND-413'] },
         { id: 'IND-424', nombre: 'Creatividad Prototipos Negocios', semestre: 8, prerequisitos: ['IND-414'] },
-        { id: 'IND-425', nombre: 'Módulo Integ. Lic. (Práctica 1)', semestre: 8, prerequisitos: [] },
+        { id: 'IND-425', nombre: 'Módulo Integ. Lic. (Práctica 1)', semestre: 8, prerequisitos: ['IND-415'] },
         { id: 'CFG', nombre: 'Certificación CFG', semestre: 8, prerequisitos: ['MFG-215'] },
         // Semestre IX
         { id: 'IND-511', nombre: 'Optimiza.', semestre: 9, prerequisitos: ['IND-421'] },
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const titulo = document.createElement('div');
         titulo.classList.add('semestre-titulo');
-        titulo.textContent = i <= 11 ? `Semestre ${i}` : 'Termino';
+        titulo.textContent = i <= 11 ? `Semestre ${i}` : 'Titulación';
         columna.appendChild(titulo);
         container.appendChild(columna);
     }
