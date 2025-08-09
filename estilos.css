@@ -1,13 +1,13 @@
 :root {
-    --color-fondo: #f0f4f8;
-    --color-ramo: #ffffff;
-    --color-ramo-aprobado: #d4edda;
-    --color-ramo-bloqueado: #e9ecef;
-    --color-texto: #343a40;
-    --color-texto-aprobado: #155724;
-    --color-texto-bloqueado: #6c757d;
-    --borde-ramo: #ced4da;
-    --sombra-ramo: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --color-fondo: #f4f7f6;
+    --color-principal: #003366;
+    --color-secundario: #00aaff;
+    --color-texto: #333;
+    --color-borde: #d1d9e6;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    --color-resaltado-prereq: #ffdd57;
+    --color-resaltado-conseq: #48c774;
+    --radio-borde: 8px;
 }
 
 body {
@@ -16,127 +16,136 @@ body {
     color: var(--color-texto);
     margin: 0;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-header {
+header, footer {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    color: var(--color-principal);
 }
 
 h1 {
-    font-size: 2.5em;
-    color: #003366;
-    margin: 0;
+    margin-bottom: 5px;
 }
 
 h2 {
-    font-size: 1.5em;
+    margin: 0;
     font-weight: 400;
-    color: #0056b3;
+    font-size: 1.2em;
 }
 
-#malla-container {
-    display: flex;
+.malla-container {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr) 0.5fr; /* 11 semestres + columna de titulación */
     gap: 10px;
-    justify-content: flex-start; /* <--- Esta es la corrección */
-    overflow-x: auto; 
-    padding-bottom: 20px;
+    width: 100%;
+    max-width: 1800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--radio-borde);
+    box-shadow: 0 4px 15px var(--color-sombra);
 }
 
-.semestre {
-    flex: 1;
-    min-width: 160px; /* Ancho mínimo para cada columna */
+.semestre-columna {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #e2e8f0;
-    padding: 10px;
-    border-radius: 8px;
+    position: relative;
 }
 
 .semestre-titulo {
     text-align: center;
-    font-weight: 700;
-    font-size: 1.2em;
-    color: #003366;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #b2c8e1;
+    font-weight: bold;
+    color: var(--color-principal);
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: var(--radio-borde);
+    margin-bottom: 10px;
 }
 
-.ramo {
-    background-color: var(--color-ramo);
-    border: 1px solid var(--borde-ramo);
-    border-left: 5px solid #007bff; /* Línea de color para estado inicial */
-    border-radius: 6px;
+.asignatura {
+    border: 1px solid var(--color-borde);
+    border-left: 5px solid var(--color-secundario);
     padding: 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    box-shadow: var(--sombra-ramo);
-    user-select: none; /* Evita la selección de texto al hacer clic */
-}
-
-.ramo:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.ramo-nombre {
-    font-weight: 500;
-    margin-bottom: 4px;
-}
-
-.ramo-codigo {
+    border-radius: var(--radio-borde);
+    background-color: #ffffff;
     font-size: 0.85em;
-    color: #6c757d;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 2px 5px var(--color-sombra);
+    opacity: 0.9;
 }
 
-/* Estado Aprobado */
-.ramo.aprobado {
-    background-color: var(--color-ramo-aprobado);
-    border-color: #c3e6cb;
-    border-left-color: #28a745;
-    color: var(--color-texto-aprobado);
+.asignatura:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 20px var(--color-sombra);
+    border-left-color: var(--color-principal);
+    opacity: 1;
 }
 
-.ramo.aprobado .ramo-nombre {
-    text-decoration: line-through;
+.asignatura-nombre {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.ramo.aprobado .ramo-codigo {
-    color: var(--color-texto-aprobado);
-    opacity: 0.7;
+.asignatura-codigo {
+    font-size: 0.9em;
+    color: #555;
 }
 
-/* Estado Bloqueado */
-.ramo.bloqueado {
-    background-color: var(--color-ramo-bloqueado);
-    border-color: #d6d8db;
-    border-left-color: #6c757d;
-    color: var(--color-texto-bloqueado);
-    cursor: not-allowed;
-    opacity: 0.8;
+/* --- Estados de Resaltado --- */
+
+.asignatura.resaltado-base {
+    opacity: 1;
+    border-left-width: 5px;
+    transform: scale(1.05);
 }
 
-.ramo.bloqueado:hover {
-    transform: none; /* Sin efecto hover si está bloqueado */
-    box-shadow: var(--sombra-ramo);
+.asignatura.resaltado-prerequisito {
+    background-color: var(--color-resaltado-prereq);
+    border-left-color: #fca311;
+    opacity: 1;
 }
 
-footer {
-    text-align: center;
-    margin-top: 30px;
-    font-style: italic;
-    color: #6c757d;
+.asignatura.resaltado-consecuencia {
+    background-color: var(--color-resaltado-conseq);
+    border-left-color: #2b9d5c;
+    opacity: 1;
 }
 
-/* Responsividad para pantallas más pequeñas */
-@media (max-width: 1200px) {
-    body {
-        padding: 10px;
-    }
-    #malla-container {
-        /* Permite que el contenedor se ajuste y use el scroll horizontal */
-        justify-content: flex-start;
-    }
+.malla-container.filtrando .asignatura:not(.resaltado-base):not(.resaltado-prerequisito):not(.resaltado-consecuencia) {
+    opacity: 0.3;
+}
+
+/* Líneas de conexión (opcional, manejado por JS) */
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+path {
+    stroke-width: 2px;
+    fill: none;
+    transition: stroke 0.3s ease;
+}
+
+path.linea-prerequisito {
+    stroke: var(--color-resaltado-prereq);
+    stroke-dasharray: 5, 5;
+}
+
+path.linea-consecuencia {
+    stroke: var(--color-resaltado-conseq);
 }
