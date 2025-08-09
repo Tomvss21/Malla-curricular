@@ -1,1 +1,123 @@
+:root {
+    --main-bg-color: #f4f7f6;
+    --ramo-bg-color: #2e8b57; /* Verde similar al de la imagen */
+    --ramo-text-color: #ffffff;
+    --header-text-color: #333;
+    --semestre-header-color: #555;
+    --highlight-color: #ffdd57; /* Amarillo para resaltar */
+    --line-color: #4a4a4a;
+    --line-highlight-color: #d6336c; /* Color para resaltar línea de prerrequisito */
+}
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--header-text-color);
+    margin: 0;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+header h2 {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: var(--semestre-header-color);
+}
+
+.malla-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2; /* Asegura que los ramos estén sobre las líneas */
+}
+
+.semestre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    min-width: 120px;
+}
+
+.semestre h3 {
+    color: var(--semestre-header-color);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.ramo {
+    background-color: var(--ramo-bg-color);
+    color: var(--ramo-text-color);
+    padding: 10px;
+    border-radius: 8px;
+    width: 120px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.85em;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0.6; /* Todos los ramos empiezan ligeramente opacos */
+}
+
+.ramo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Clases de estado */
+.ramo.selected {
+    opacity: 1;
+    background-color: var(--highlight-color);
+    color: #000;
+    font-weight: bold;
+}
+
+.ramo.prereq {
+    opacity: 1;
+    background-color: #6c9a7f; /* Un verde más claro para prerrequisitos */
+}
+
+.ramo.successor {
+    opacity: 1;
+    background-color: #a6d8b6; /* Un verde aún más claro para sucesores */
+}
+
+/* SVG container for lines */
+#lines-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Detrás de los ramos */
+    pointer-events: none; /* Las líneas no deben capturar eventos de mouse */
+}
+
+#lines-container path {
+    stroke-width: 2px;
+    stroke: var(--line-color);
+    fill: none;
+    transition: stroke 0.3s ease, stroke-width 0.3s ease;
+}
+
+#lines-container path.highlight {
+    stroke: var(--line-highlight-color);
+    stroke-width: 3px;
+}
